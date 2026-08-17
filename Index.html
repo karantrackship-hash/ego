@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Office Romance</title>
+  <link rel="preconnect" href="https://i.ytimg.com">
+  <!-- Link your CSS file here -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div id="bg-fallback"></div>
+  <img id="bg" alt="" onerror="this.style.display='none'">
+  <video id="bgv" muted loop playsinline preload="auto"></video>
+  <div id="vignette"></div>
+
+  <div id="deck" class="glass">
+    <img id="art" alt="" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'/%3E">
+    <div id="mid">
+      <div id="screen"><div id="title">— — —</div></div>
+      <div id="bar"><div id="fill"></div></div>
+    </div>
+    <div id="eq"></div>
+    <div id="ctrls">
+      <button class="ico" id="prev" title="Previous" aria-label="Previous track">
+        <svg viewBox="0 0 24 24"><path d="M7 5h2.5v14H7zM20 5v14L9.5 12z"/></svg>
+      </button>
+      <button id="play" title="Play" aria-label="Play">
+        <svg id="play-i" viewBox="0 0 24 24"><path d="M7 4.5v15L20 12z"/></svg>
+      </button>
+      <button class="ico" id="next" title="Next" aria-label="Next track">
+        <svg viewBox="0 0 24 24"><path d="M17 5h-2.5v14H17zM4 5v14l10.5-7z"/></svg>
+      </button>
+      <button class="ico" id="mute" title="Mute" aria-label="Mute">
+        <svg id="mute-i" viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9H4zm12.5 3a4.5 4.5 0 0 0-2.5-4v8a4.5 4.5 0 0 0 2.5-4z"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- ─── settings ─────────────────────────────────────────────── -->
+  <button id="gear" class="glass" aria-expanded="false" aria-controls="panel" title="Settings" aria-label="Settings">
+    <svg viewBox="0 0 24 24"><path d="M12 15.5A3.5 3.5 0 1 1 15.5 12 3.5 3.5 0 0 1 12 15.5zm7.4-2.6a7.6 7.6 0 0 0 0-1.8l2-1.5a.5.5 0 0 0 .1-.6l-1.9-3.2a.5.5 0 0 0-.6-.2l-2.3.9a7.3 7.3 0 0 0-1.6-.9l-.3-2.4a.5.5 0 0 0-.5-.4h-3.8a.5.5 0 0 0-.5.4l-.3 2.4a7.3 7.3 0 0 0-1.6.9l-2.3-.9a.5.5 0 0 0-.6.2L2.5 9a.5.5 0 0 0 .1.6l2 1.5a7.6 7.6 0 0 0 0 1.8l-2 1.5a.5.5 0 0 0-.1.6l1.9 3.2a.5.5 0 0 0 .6.2l2.3-.9a7.3 7.3 0 0 0 1.6.9l.3 2.4a.5.5 0 0 0 .5.4h3.8a.5.5 0 0 0 .5-.4l.3-2.4a7.3 7.3 0 0 0 1.6-.9l2.3.9a.5.5 0 0 0 .6-.2l1.9-3.2a.5.5 0 0 0-.1-.6z"/></svg>
+  </button>
+
+  <div id="panel" class="glass" role="dialog" aria-label="Settings">
+    <h2>Your playlist</h2>
+    <div class="field">
+      <label for="f-playlist">MP3 file names</label>
+      <input type="text" id="f-playlist" placeholder="song1.mp3, song2.mp3, song3.mp3" spellcheck="false"
+             autocomplete="off" autocapitalize="off">
+      <span class="err" id="e-playlist"></span>
+      <span class="hint">Enter MP3 file names separated by commas. Files must be in the same folder.</span>
+    </div>
+    <div class="sep"></div>
+    <div class="row">
+      <button class="btn primary" id="save">Play it</button>
+      <button class="btn" id="share">Copy link</button>
+      <button class="btn" id="reset">Reset</button>
+    </div>
+    <span class="hint" id="linkinfo" style="display:none"></span>
+  </div>
+
+  <div id="credit" class="glass">
+    <span><b>Office Romance</b></span>
+    <span class="links">
+      <a href="https://www.instagram.com/ankitsharmatv/" target="_blank" rel="noopener noreferrer" title="Instagram" aria-label="Ankit Sharma on Instagram">
+        <svg viewBox="0 0 24 24"><path d="M7.8 2h8.4A5.8 5.8 0 0 1 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8A5.8 5.8 0 0 1 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2zm0 2A3.8 3.8 0 0 0 4 7.8v8.4A3.8 3.8 0 0 0 7.8 20h8.4a3.8 3.8 0 0 0 3.8-3.8V7.8A3.8 3.8 0 0 0 16.2 4H7.8zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6zm5.5-2.9a1.15 1.15 0 1 1 0 2.3 1.15 1.15 0 0 1 0-2.3z"/></svg>
+      </a>
+    </span>
+  </div>
+
+  <div id="toast"></div>
+
+  <div id="loader">
+    <div>
+      <h1>OFFICE <span>ROMANCE</span></h1>
+      <div id="lbar"><i></i></div>
+    </div>
+  </div>
+
+  <audio id="audio" preload="auto"></audio>
+
+  <!-- Link your JS file here -->
+  <script src="script.js"></script>
+</body>
+</html>

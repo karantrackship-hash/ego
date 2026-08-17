@@ -1,252 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vibe Station - Your Musical Hub</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --bg-color: #0f0f13;
-            --card-bg: #181820;
-            --accent: #b829dd;
-            --text-primary: #ffffff;
-            --text-secondary: #a0a0a0;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
-        }
-
-        body {
-            background-color: var(--bg-color);
-            color: var(--text-primary);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        /* Navigation */
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1.5rem 5%;
-            background: rgba(15, 15, 19, 0.95);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            border-bottom: 1px solid #2a2a35;
-            backdrop-filter: blur(10px);
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--accent);
-            letter-spacing: -1px;
-        }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 2.5rem;
-        }
-
-        nav a {
-            color: var(--text-primary);
-            text-decoration: none;
-            font-weight: 400;
-            transition: color 0.3s ease;
-            font-size: 0.95rem;
-        }
-
-        nav a:hover {
-            color: var(--accent);
-        }
-
-        /* Hero Section */
-        .hero {
-            text-align: center;
-            padding: 6rem 2rem 4rem;
-            background: radial-gradient(circle at top center, #2d1b4e 0%, var(--bg-color) 70%);
-        }
-
-        /* Equalizer Animation */
-        .equalizer {
-            display: flex;
-            gap: 6px;
-            justify-content: center;
-            height: 40px;
-            margin-bottom: 1.5rem;
-        }
-
-        .bar {
-            width: 8px;
-            background: var(--accent);
-            border-radius: 4px;
-            animation: bounce 1.2s infinite ease-in-out;
-        }
-
-        .bar:nth-child(1) { animation-delay: 0s; }
-        .bar:nth-child(2) { animation-delay: 0.2s; }
-        .bar:nth-child(3) { animation-delay: 0.4s; }
-        .bar:nth-child(4) { animation-delay: 0.6s; }
-        .bar:nth-child(5) { animation-delay: 0.8s; }
-
-        @keyframes bounce {
-            0%, 100% { height: 10px; }
-            50% { height: 40px; }
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            font-weight: 700;
-            background: linear-gradient(to right, #fff, var(--accent));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            color: var(--text-secondary);
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        /* Featured Playlist Section */
-        .featured {
-            text-align: center;
-            padding: 5rem 5%;
-            background-color: var(--card-bg);
-            margin: 2rem auto;
-            width: 90%;
-            max-width: 1200px;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-            border: 1px solid #2a2a35;
-        }
-
-        .featured h2 {
-            font-size: 2.2rem;
-            margin-bottom: 2.5rem;
-            color: var(--text-primary);
-            display: inline-block;
-            position: relative;
-        }
-
-        .featured h2::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 50px;
-            height: 3px;
-            background: var(--accent);
-            border-radius: 2px;
-        }
-
-        /* Video Container (Responsive 16:9) */
-        .video-container {
-            position: relative;
-            padding-bottom: 56.25%; /* 16:9 aspect ratio */
-            height: 0;
-            overflow: hidden;
-            max-width: 900px;
-            margin: 0 auto;
-            border-radius: 12px;
-            border: 2px solid #333;
-            box-shadow: 0 15px 40px rgba(184, 41, 221, 0.2);
-        }
-
-        .video-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-
-        .caption {
-            margin-top: 2rem;
-            font-style: italic;
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-        }
-
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 3rem 2rem;
-            color: #555;
-            font-size: 0.9rem;
-            border-top: 1px solid #222;
-            margin-top: 4rem;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2.5rem; }
-            nav { flex-direction: column; gap: 1rem; }
-            nav ul { gap: 1.5rem; }
-            .featured { padding: 3rem 1.5rem; }
-            .featured h2 { font-size: 1.8rem; }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ट्रकवाला — Truck Wala | Horn OK Please</title>
+<link href="https://fonts.googleapis.com/css2?family=Yatra+One&family=Kalam:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+:root{--red:#c62828;--deep:#7a1414;--yellow:#ffc107;--orange:#ff6f00;--green:#1b8a5a;--cream:#fff6e0;--teal:#00897b;--bg:#241511;--ink:#2b1a12}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);background-image:radial-gradient(rgba(255,193,7,.06) 2px,transparent 2px);background-size:26px 26px;font-family:'Kalam',cursive;color:var(--cream);overflow-x:hidden}
+.ticker{background:var(--yellow);color:var(--ink);overflow:hidden;white-space:nowrap;border-bottom:4px solid var(--red);font-weight:700;padding:.45rem 0;font-size:1.05rem}
+.ticker-inner{display:inline-block;animation:scroll 28s linear infinite}.ticker:hover .ticker-inner{animation-play-state:paused}
+@keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+header{text-align:center;padding:2.6rem 1rem 1.4rem;position:relative}
+.board{display:inline-block;background:var(--red);border:6px solid var(--yellow);outline:4px dashed var(--cream);outline-offset:-14px;border-radius:18px;padding:1.6rem 2.6rem;box-shadow:0 12px 0 var(--deep),0 22px 45px rgba(0,0,0,.55);position:relative}
+.board:before,.board:after{content:"🌼";position:absolute;font-size:1.6rem;top:-1.1rem}.board:before{left:-.6rem}.board:after{right:-.6rem}
+h1{font-family:'Yatra One',cursive;font-size:clamp(2.2rem,6vw,4rem);color:var(--yellow);text-shadow:3px 3px 0 var(--ink)}
+h1 small{display:block;font-size:.42em;color:var(--cream);letter-spacing:.35em}.tagline{margin-top:.7rem;color:#ffe9b3;font-size:1.05rem}.flowers{font-size:1.3rem;letter-spacing:.6rem;margin-top:.9rem}
+main{max-width:1150px;margin:1.5rem auto 0;padding:0 1rem;display:grid;grid-template-columns:1.35fr 1fr;gap:1.6rem}
+@media(max-width:900px){main{grid-template-columns:1fr}}
+.panel{background:#33201a;border:4px solid var(--yellow);border-radius:16px;box-shadow:0 10px 30px rgba(0,0,0,.5);overflow:hidden;position:relative}
+.panel-head{background:repeating-linear-gradient(45deg,var(--red) 0 18px,var(--orange) 18px 36px);padding:.7rem 1rem;font-family:'Yatra One',cursive;font-size:1.25rem;color:#fff;text-shadow:2px 2px 0 var(--ink);display:flex;justify-content:space-between;align-items:center}
+.scallop{height:14px;background:radial-gradient(circle at 8px 0,var(--yellow) 8px,transparent 9px);background-size:16px 14px;background-repeat:repeat-x}
+.audio-wrap{display:flex;gap:1rem;align-items:center;padding:1.1rem;background:#241511}.album-art{width:112px;height:112px;flex:0 0 112px;display:grid;place-items:center;border-radius:16px;background:linear-gradient(145deg,var(--yellow),var(--orange));border:4px solid var(--ink);box-shadow:0 7px 0 var(--ink);font-size:3.5rem}
+.audio-info{min-width:0;flex:1}.audio-label{font-size:.72rem;color:#e8c9a0;letter-spacing:.15em;margin-bottom:.25rem}#npTitle{font-weight:700;color:var(--yellow);font-size:1.08rem;line-height:1.25}#npArtist{color:#e8c9a0;font-size:.9rem;margin-top:.1rem}
+.progress-row,.volume-row{display:flex;align-items:center;gap:.55rem;margin-top:.75rem;color:#e8c9a0;font-size:.78rem}.progress-row input{width:100%}#progress,#volume{accent-color:var(--yellow);cursor:pointer}#volume{width:110px}
+.now-playing{display:flex;align-items:center;gap:.8rem;padding:.9rem 1rem;background:var(--deep)}.eq{display:flex;gap:3px;align-items:flex-end;height:22px}.eq span{width:5px;background:var(--yellow);border-radius:3px;animation:bounce 1s infinite ease-in-out}.eq span:nth-child(2){animation-delay:.15s}.eq span:nth-child(3){animation-delay:.3s}.eq span:nth-child(4){animation-delay:.45s}.eq span:nth-child(5){animation-delay:.6s}@keyframes bounce{0%,100%{height:5px}50%{height:22px}}
+#statusText{font-weight:700;color:var(--yellow)}.status-sub{color:#cfa57e;font-size:.8rem}
+.controls{display:flex;gap:.7rem;padding:0 1rem 1rem;background:var(--deep)}.btn{font-family:'Yatra One',cursive;cursor:pointer;border:3px solid var(--ink);border-radius:12px;padding:.45rem 1.1rem;font-size:1rem;color:var(--ink);background:var(--yellow);box-shadow:0 4px 0 var(--ink);transition:.12s}.btn:active{transform:translateY(3px);box-shadow:0 1px 0 var(--ink)}.btn.teal{background:var(--teal);color:#fff}
+.plist{max-height:470px;overflow-y:auto;padding:.6rem}.plist::-webkit-scrollbar{width:10px}.plist::-webkit-scrollbar-thumb{background:var(--orange);border-radius:6px}.track{display:flex;gap:.8rem;align-items:center;width:100%;text-align:left;background:transparent;border:none;border-bottom:2px dotted #5a3a2c;color:var(--cream);font-family:'Kalam',cursive;font-size:1rem;padding:.65rem .6rem;cursor:pointer;transition:.15s}.track:hover{background:#4a2c22;transform:translateX(4px)}.track .num{font-family:'Yatra One',cursive;color:var(--orange);min-width:2ch}.track .t{font-weight:700}.track .a{display:block;font-size:.82rem;color:#cfa57e}.track.active{background:var(--yellow);color:var(--ink);border-radius:10px;border-bottom:none}.track.active .num{color:var(--red)}.track.active .a{color:#5c3a10}.track.active .t:after{content:" ◀ baj raha hai";font-size:.75em;color:var(--red)}
+.horn-zone{text-align:center;margin:2.6rem auto 1rem}.horn-board{display:inline-flex;align-items:center;gap:1.2rem;background:var(--teal);border:6px double var(--cream);border-radius:20px;padding:1.2rem 2rem;box-shadow:0 10px 0 #0c5a4e,0 18px 40px rgba(0,0,0,.5);flex-wrap:wrap;justify-content:center}.horn-board h2{font-family:'Yatra One',cursive;font-size:clamp(1.4rem,4vw,2.2rem);color:#fff;text-shadow:2px 2px 0 var(--ink)}#okBadge{display:inline-grid;place-items:center;width:64px;height:64px;border-radius:50%;background:var(--yellow);color:var(--ink);font-family:'Yatra One',cursive;font-size:1.3rem;border:4px solid var(--ink)}#okBadge.lit{animation:pop .5s ease;background:#7CFC9B}@keyframes pop{40%{transform:scale(1.35) rotate(-8deg)}}#hornBtn{width:110px;height:110px;border-radius:50%;border:6px solid var(--ink);cursor:pointer;background:radial-gradient(circle at 35% 30%,#ff8a80,var(--red) 60%,#8e0000);color:#fff;font-family:'Yatra One',cursive;font-size:1.15rem;text-shadow:2px 2px 0 var(--ink);box-shadow:0 8px 0 var(--ink),inset 0 -8px 14px rgba(0,0,0,.4);transition:.1s}#hornBtn:active{transform:translateY(6px);box-shadow:0 2px 0 var(--ink)}.hint{margin-top:.8rem;color:#e8c9a0}
+footer{margin-top:3rem;position:relative;padding-bottom:2.4rem}.road{height:70px;background:#3a3a3a;border-top:6px solid #555;position:relative;overflow:hidden}.road:before{content:"";position:absolute;left:0;right:0;top:50%;height:6px;background:repeating-linear-gradient(90deg,var(--yellow) 0 40px,transparent 40px 80px);animation:roadmove 1s linear infinite}@keyframes roadmove{to{background-position:-80px 0}}.truck{position:absolute;bottom:14px;font-size:3.2rem;animation:drive 14s linear infinite;filter:drop-shadow(0 4px 4px rgba(0,0,0,.6))}.truck i{display:inline-block;font-style:normal;transform:scaleX(-1);animation:bob .4s infinite}@keyframes drive{from{left:-12%}to{left:105%}}@keyframes bob{50%{transform:scaleX(-1) translateY(-3px)}}.foot-text{text-align:center;padding:1.4rem 1rem 0;color:#cfa57e}.foot-text b{color:var(--yellow);font-family:'Yatra One',cursive;letter-spacing:.1em}
+@media(max-width:560px){.audio-wrap{align-items:flex-start}.album-art{width:86px;height:86px;flex-basis:86px;font-size:2.5rem}.controls{flex-wrap:wrap}.btn{flex:1}.horn-board{margin:0 1rem}}
+</style>
 </head>
 <body>
-
-    <!-- Navigation Bar -->
-    <nav>
-        <div class="logo">VIBE STATION</div>
-        <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#featured">Featured</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
-
-    <!-- Hero Section -->
-    <header id="home" class="hero">
-        <div class="equalizer">
-            <div class="bar"></div>
-            <div class="bar"></div>
-            <div class="bar"></div>
-            <div class="bar"></div>
-            <div class="bar"></div>
-        </div>
-        <h1>Feel the Rhythm</h1>
-        <p>Your daily destination for curated beats, relaxing melodies, and the best musical vibes on the web.</p>
-    </header>
-
-    <!-- Main Content / Video Player -->
-    <main>
-        <section id="featured" class="featured">
-            <h2>Currently Playing</h2>
-            
-            <!-- Responsive YouTube Embed -->
-            <div class="video-container">
-                <iframe 
-                    src="https://www.youtube.com/embed/aroZ0SSNoEo?si=IF5puqEgdLkkDhPo" 
-                    title="Featured Music Playlist" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                    allowfullscreen>
-                </iframe>
-            </div>
-            
-            <p class="caption">Sit back, relax, and enjoy the featured mix. 🎧</p>
-        </section>
-    </main>
-
-    <!-- Footer -->
-    <footer id="contact">
-        <p>&copy; 2026 Vibe Station. Designed for music lovers.</p>
-    </footer>
-
+<div class="ticker"><div class="ticker-inner" id="ticker"></div></div>
+<header><div class="board"><h1>ट्रकवाला <small>TRUCK WALA</small></h1></div><p class="tagline">Non-stop 90s Bollywood highway bangers — the songs that blast out of Indian trucks. 🚚</p><div class="flowers">🌸 🌼 🌺 🌼 🌸</div></header>
+<main>
+<section class="panel">
+<div class="panel-head"><span>🎧 DJ BOX — SIDE A</span><span>माता जी की जय</span></div><div class="scallop"></div>
+<div class="audio-wrap"><audio id="audioPlayer" preload="metadata"></audio><div class="album-art">🎵</div><div class="audio-info"><div class="audio-label">LOCAL MP3 PLAYER</div><div id="npTitle">—</div><div id="npArtist">—</div><div class="progress-row"><span id="currentTime">0:00</span><input id="progress" type="range" min="0" max="100" value="0" step="0.1" aria-label="Song progress"><span id="duration">0:00</span></div><div class="volume-row"><span>🔊</span><input id="volume" type="range" min="0" max="1" value="0.9" step="0.01" aria-label="Volume"></div></div></div>
+<div class="now-playing"><div class="eq"><span></span><span></span><span></span><span></span><span></span></div><div><div id="statusText">Ready to play</div><div class="status-sub">MP3 • Local audio files</div></div></div>
+<div class="controls"><button class="btn" onclick="prevTrack()">⏮ Pichla</button><button class="btn teal" id="playBtn" onclick="togglePlay()">▶ Play</button><button class="btn" onclick="nextTrack()">Agla ⏭</button></div>
+</section>
+<section class="panel"><div class="panel-head"><span>🛣️ HIGHWAY HITS</span><span id="count"></span></div><div class="scallop"></div><div class="plist" id="plist"></div></section>
+</main>
+<div class="horn-zone"><div class="horn-board"><h2>HORN</h2><span id="okBadge">OK</span><h2>PLEASE</h2><button id="hornBtn" onclick="honk()">HORN<br>BAJAO</button></div><p class="hint">Button dabao, full truck wali vibe lo! 📢</p></div>
+<footer><div class="road"><span class="truck"><i>🚚</i></span></div><p class="foot-text"><b>HORN OK PLEASE</b> · बुरी नज़र वाले तेरा भी भला हो · Use Dipper At Night · Save Life, Drive Slow</p></footer>
+<script>
+const SONGS=[
+{t:"Mujhse Mohabbat Ka Izhaar Karta",a:"Kumar Sanu, Alka Yagnik · Hum Hain Rahi Pyar Ke (1993)",file:"audio/mujhse-mohabbat-ka-izhaar-karta.mp3"},
+{t:"Saaton Janam Main Tere",a:"Kumar Sanu, Alka Yagnik · Dilwale (1994)",file:"audio/saaton-janam-main-tere.mp3"},
+{t:"Mujhe Neend Na Aaye",a:"Udit Narayan, Anuradha Paudwal · Dil (1990)",file:"audio/mujhe-neend-na-aaye.mp3"},
+{t:"Pehla Nasha",a:"Udit Narayan, Sadhana Sargam · Jo Jeeta Wohi Sikandar (1992)",file:"audio/pehla-nasha.mp3"},
+{t:"Tujhe Dekha Toh Ye Jaana Sanam",a:"Kumar Sanu, Lata Mangeshkar · DDLJ (1995)",file:"audio/tujhe-dekha-toh-ye-jaana-sanam.mp3"},
+{t:"Ek Ladki Ko Dekha Toh Aisa Laga",a:"Kumar Sanu · 1942: A Love Story (1994)",file:"audio/ek-ladki-ko-dekha-toh-aisa-laga.mp3"},
+{t:"Tumhein Apna Banane Ki Kasam",a:"Kumar Sanu, Anuradha Paudwal · Sadak (1991)",file:"audio/tumhein-apna-banane-ki-kasam.mp3"},
+{t:"Nazar Ke Samne Jigar Ke Paas",a:"Kumar Sanu, Anuradha Paudwal · Aashiqui (1990)",file:"audio/nazar-ke-samne-jigar-ke-paas.mp3"}
+];
+let current=0;const audio=document.getElementById('audioPlayer');
+const line=" ★ HORN OK PLEASE ★ बुरी नज़र वाले तेरा भी भला हो ★ USE DIPPER AT NIGHT ★ SAVE LIFE, DRIVE SLOW ★ ट्रकवाला ";document.getElementById('ticker').textContent=line.repeat(6);
+const plist=document.getElementById('plist');document.getElementById('count').textContent=SONGS.length+" gane";
+SONGS.forEach((s,i)=>{const b=document.createElement('button');b.className='track';b.innerHTML=`<span class="num">${String(i+1).padStart(2,'0')}</span><span><span class="t">${s.t}</span><span class="a">${s.a}</span></span>`;b.onclick=()=>playTrack(i,true);plist.appendChild(b);});
+function fmt(sec){if(!Number.isFinite(sec))return'0:00';const m=Math.floor(sec/60),s=Math.floor(sec%60).toString().padStart(2,'0');return`${m}:${s}`}
+function setNowPlaying(i){current=i;document.getElementById('npTitle').textContent=SONGS[i].t;document.getElementById('npArtist').textContent=SONGS[i].a;document.querySelectorAll('.track').forEach((el,idx)=>{el.classList.toggle('active',idx===i);if(idx===i)el.scrollIntoView({block:'nearest',behavior:'smooth'})})}
+function playTrack(i,autoplay=false){if(i<0||i>=SONGS.length)return;setNowPlaying(i);audio.src=SONGS[i].file;audio.load();if(autoplay)audio.play().catch(()=>{});updatePlayButton()}
+function togglePlay(){if(audio.paused){if(!audio.src)playTrack(current,false);audio.play().catch(()=>{})}else audio.pause()}
+function nextTrack(){playTrack((current+1)%SONGS.length,true)}function prevTrack(){playTrack((current-1+SONGS.length)%SONGS.length,true)}
+function updatePlayButton(){const playing=!audio.paused;document.getElementById('playBtn').textContent=playing?'⏸ Pause':'▶ Play';document.getElementById('statusText').textContent=playing?'Now playing':'Paused'}
+audio.addEventListener('play',updatePlayButton);audio.addEventListener('pause',updatePlayButton);audio.addEventListener('ended',nextTrack);audio.addEventListener('loadedmetadata',()=>document.getElementById('duration').textContent=fmt(audio.duration));audio.addEventListener('timeupdate',()=>{document.getElementById('progress').value=audio.duration?(audio.currentTime/audio.duration)*100:0;document.getElementById('currentTime').textContent=fmt(audio.currentTime)});audio.addEventListener('error',()=>{document.getElementById('statusText').textContent='MP3 file not found — check the audio/ folder';updatePlayButton()});
+document.getElementById('progress').addEventListener('input',e=>{if(audio.duration)audio.currentTime=(Number(e.target.value)/100)*audio.duration});document.getElementById('volume').addEventListener('input',e=>audio.volume=Number(e.target.value));audio.volume=.9;setNowPlaying(0);playTrack(0,false);
+let audioCtx;function honk(){audioCtx=audioCtx||new(window.AudioContext||window.webkitAudioContext)();const t0=audioCtx.currentTime;const blast=(start,dur)=>{[262,330,392].forEach(f=>{const o=audioCtx.createOscillator(),g=audioCtx.createGain();o.type='sawtooth';o.frequency.value=f;g.gain.setValueAtTime(.0001,start);g.gain.exponentialRampToValueAtTime(.35,start+.04);g.gain.setValueAtTime(.35,start+dur-.06);g.gain.exponentialRampToValueAtTime(.0001,start+dur);o.connect(g).connect(audioCtx.destination);o.start(start);o.stop(start+dur+.05)})};blast(t0,.55);blast(t0+.75,.85);const ok=document.getElementById('okBadge');ok.classList.remove('lit');void ok.offsetWidth;ok.classList.add('lit')}
+</script>
 </body>
 </html>

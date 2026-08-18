@@ -1,0 +1,287 @@
+@import "tailwindcss";
+
+@theme {
+  --font-hindi: 'Noto Sans Devanagari', sans-serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+}
+
+/* ── Reset & Base ─────────────────────────────────────────── */
+
+* {
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  font-family: var(--font-body);
+}
+
+/* ── Background layers ─────────────────────────────────────── */
+
+.bg-layer {
+  position: fixed;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 1.8s ease-in-out;
+  z-index: 0;
+}
+
+.bg-layer.active {
+  opacity: 1;
+}
+
+.bg-overlay {
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.3) 0%,
+    rgba(0, 0, 0, 0.5) 50%,
+    rgba(0, 0, 0, 0.75) 100%
+  );
+  z-index: 1;
+}
+
+/* ── Spinning disc ─────────────────────────────────────────── */
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.disc {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.6);
+  flex-shrink: 0;
+}
+
+.disc.spinning {
+  animation: spin 4s linear infinite;
+}
+
+.disc.spinning.paused {
+  animation-play-state: paused;
+}
+
+.disc-inner {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: radial-gradient(circle at center,
+    #111 0%, #111 18%,
+    transparent 18.5%, transparent 19.5%,
+    rgba(255,255,255,0.05) 19.5%, rgba(255,255,255,0.05) 20%,
+    transparent 20%
+  );
+  z-index: 2;
+}
+
+.disc-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  margin: -10px 0 0 -10px;
+  border-radius: 50%;
+  background: #222;
+  border: 2px solid #444;
+  z-index: 3;
+}
+
+.disc img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+/* ── Seek bar ──────────────────────────────────────────────── */
+
+.seek-bar {
+  position: relative;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 3px;
+  cursor: pointer;
+  touch-action: none;
+  user-select: none;
+}
+
+.seek-fill {
+  position: absolute;
+  inset: 0;
+  border-radius: 3px;
+  background: linear-gradient(90deg, #f59e0b, #ef4444);
+  transform-origin: left;
+  pointer-events: none;
+}
+
+.seek-knob {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+  pointer-events: none;
+  transition: transform 0.05s;
+}
+
+.seek-bar:hover .seek-knob {
+  transform: translate(-50%, -50%) scale(1.3);
+}
+
+/* ── Playlist ──────────────────────────────────────────────── */
+
+.playlist {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease-in-out;
+}
+
+.playlist.open {
+  max-height: 60vh;
+  overflow-y: auto;
+}
+
+.playlist::-webkit-scrollbar {
+  width: 5px;
+}
+
+.playlist::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.playlist::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+}
+
+.playlist-item {
+  padding: 10px 16px;
+  cursor: pointer;
+  transition: background 0.15s;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.playlist-item:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.playlist-item.active {
+  background: rgba(245, 158, 11, 0.15);
+  border-left: 3px solid #f59e0b;
+}
+
+/* ── Bumper text ───────────────────────────────────────────── */
+
+@keyframes bumperFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+.bumper-text {
+  animation: bumperFloat 3s ease-in-out infinite;
+}
+
+/* ── Control buttons ───────────────────────────────────────── */
+
+.control-btn {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 50%;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+  backdrop-filter: blur(4px);
+}
+
+.control-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.05);
+}
+
+.control-btn:active {
+  transform: scale(0.95);
+}
+
+.play-btn {
+  width: 56px;
+  height: 56px;
+  background: linear-gradient(135deg, #f59e0b, #ef4444);
+  border: none;
+  box-shadow: 0 4px 20px rgba(245, 158, 11, 0.4);
+}
+
+.play-btn:hover {
+  background: linear-gradient(135deg, #fbbf24, #f87171);
+  box-shadow: 0 6px 30px rgba(245, 158, 11, 0.6);
+}
+
+/* ── Title animation ───────────────────────────────────────── */
+
+@keyframes fadeSwap {
+  0% { opacity: 1; transform: translateY(0); }
+  40% { opacity: 0; transform: translateY(-8px); }
+  60% { opacity: 0; transform: translateY(8px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.title-swap {
+  animation: fadeSwap 0.4s ease-in-out;
+}
+
+/* ── Horn button ───────────────────────────────────────────── */
+
+@keyframes honk {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-8deg); }
+  75% { transform: rotate(8deg); }
+}
+
+.horn-btn:active {
+  animation: honk 0.15s ease-in-out 2;
+}
+
+/* ── Logo styling ──────────────────────────────────────────── */
+
+.truck-logo {
+  text-shadow: 0 2px 10px rgba(245, 158, 11, 0.5);
+}
+
+/* ── Mobile responsive ─────────────────────────────────────── */
+
+@media (max-width: 640px) {
+  .disc {
+    width: 140px;
+    height: 140px;
+  }
+}
+
+/* ── Glass effect ──────────────────────────────────────────── */
+
+.glass {
+  background: rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(20px) saturate(1.5);
+  -webkit-backdrop-filter: blur(20px) saturate(1.5);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}

@@ -1,0 +1,586 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Karan - Developer Portfolio</title>
+
+    <!-- Typed.js -->
+    <script src="https://unpkg.com/typed.js@3.0.0/dist/typed.umd.js"></script>
+
+    <style>
+        /* =========================
+           RESET
+        ========================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: rgb(18, 18, 62);
+            color: white;
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1.6;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        /* =========================
+           NAVBAR
+        ========================== */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            min-height: 70px;
+            padding: 15px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgb(12, 12, 12);
+        }
+
+        .left {
+            font-size: 1.5rem;
+            font-weight: bold;
+            white-space: nowrap;
+        }
+
+        nav ul {
+            display: flex;
+            align-items: center;
+            list-style: none;
+            gap: 25px;
+        }
+
+        nav ul li {
+            list-style: none;
+        }
+
+        nav ul li a {
+            color: white;
+            font-size: 1rem;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: rgb(160, 160, 238);
+        }
+
+        /* =========================
+           MAIN
+        ========================== */
+        main {
+            width: 100%;
+        }
+
+        main hr {
+            border: 0;
+            height: 1px;
+            background: gray;
+            margin: 50px 8%;
+        }
+
+        /* =========================
+           HERO SECTION
+        ========================== */
+        .firstsection {
+            min-height: 75vh;
+            padding: 60px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .leftsection {
+            width: 50%;
+            font-size: 3rem;
+        }
+
+        .leftsection div {
+            margin: 15px 0;
+        }
+
+        .rightsection {
+            width: 40%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .rightsection img {
+            width: 80%;
+            max-width: 400px;
+            height: auto;
+            border-radius: 15px;
+            object-fit: cover;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        /* =========================
+           TEXT COLORS
+        ========================== */
+        .purple {
+            color: blueviolet;
+        }
+
+        .text-gray {
+            color: gray;
+        }
+
+        #element {
+            color: blueviolet;
+            font-weight: bold;
+        }
+
+        /* =========================
+           EXPERIENCE SECTION
+        ========================== */
+        .secondSection {
+            width: 80%;
+            max-width: 1200px;
+            min-height: 60vh;
+            margin: auto;
+            padding-bottom: 70px;
+        }
+
+        .secondSection h1 {
+            margin-top: 10px;
+            font-size: 1.8rem;
+        }
+
+        .experience-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+            margin-top: 60px;
+        }
+
+        .experience-card {
+            position: relative;
+            padding: 30px 20px;
+            min-height: 260px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 12px;
+            transition: transform 0.3s ease, background 0.3s ease;
+        }
+
+        .experience-card:hover {
+            transform: translateY(-8px);
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .image-top {
+            width: 50px;
+            height: 50px;
+            object-fit: contain;
+            margin-bottom: 20px;
+        }
+
+        .vertical-title {
+            font-size: 1.1rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .vertical-desc {
+            color: #bdbdbd;
+            font-size: 0.9rem;
+        }
+
+        /* =========================
+           FOOTER
+        ========================== */
+        footer {
+            background: rgb(45, 10, 65);
+            margin-top: 30px;
+        }
+
+        .footer {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+            padding: 40px 0;
+            display: grid;
+            grid-template-columns: 2fr repeat(3, 1fr);
+            gap: 40px;
+        }
+
+        .footer h3 {
+            margin-bottom: 15px;
+        }
+
+        .footer ul {
+            list-style: none;
+        }
+
+        .footer ul li {
+            margin-bottom: 8px;
+        }
+
+        .footer ul li a {
+            color: #ddd;
+            transition: color 0.3s ease;
+        }
+
+        .footer ul li a:hover {
+            color: rgb(160, 160, 238);
+        }
+
+        .footer-rights {
+            text-align: center;
+            padding: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.15);
+            color: gray;
+            font-size: 0.9rem;
+        }
+
+        /* =========================
+           RESPONSIVE DESIGN
+        ========================== */
+        @media (max-width: 900px) {
+
+            nav {
+                padding: 15px 5%;
+            }
+
+            nav ul {
+                gap: 15px;
+            }
+
+            .firstsection {
+                padding: 50px 5%;
+            }
+
+            .leftsection {
+                font-size: 2.5rem;
+            }
+
+            .experience-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+
+            nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .firstsection {
+                flex-direction: column;
+                text-align: center;
+                padding: 50px 5%;
+            }
+
+            .leftsection,
+            .rightsection {
+                width: 100%;
+            }
+
+            .leftsection {
+                font-size: 2.2rem;
+            }
+
+            .rightsection img {
+                width: 70%;
+                max-width: 350px;
+                margin: auto;
+            }
+
+            .secondSection {
+                width: 90%;
+            }
+
+            .experience-container {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+
+            .left {
+                font-size: 1.2rem;
+            }
+
+            nav ul {
+                gap: 10px;
+            }
+
+            nav ul li a {
+                font-size: 0.85rem;
+            }
+
+            .firstsection {
+                min-height: auto;
+                padding: 50px 5%;
+            }
+
+            .leftsection {
+                font-size: 1.8rem;
+            }
+
+            .rightsection img {
+                width: 90%;
+            }
+
+            .secondSection h1 {
+                font-size: 1.5rem;
+            }
+
+            .experience-container {
+                grid-template-columns: 1fr;
+            }
+
+            .footer {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- =========================
+         HEADER / NAVBAR
+    ========================== -->
+    <header>
+        <nav>
+
+            <div class="left">
+                Karan's Portfolio
+            </div>
+
+            <div class="right">
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact Me</a></li>
+                </ul>
+            </div>
+
+        </nav>
+    </header>
+
+    <!-- =========================
+         MAIN CONTENT
+    ========================== -->
+    <main>
+
+        <!-- HERO SECTION -->
+        <section class="firstsection" id="home">
+
+            <div class="leftsection">
+
+                Hi, my name is
+                <span class="purple">Karan</span>
+
+                <div>
+                    I am a professional
+                </div>
+
+                <span id="element"></span>
+
+            </div>
+
+            <div class="rightsection">
+                <img src="bg.jfif" alt="Karan's Profile Image">
+            </div>
+
+        </section>
+
+        <hr>
+
+        <!-- EXPERIENCE SECTION -->
+        <section class="secondSection" id="about">
+
+            <span class="text-gray">
+                What I have done in my past
+            </span>
+
+            <h1>
+                Work Experience
+            </h1>
+
+            <div class="experience-container">
+
+                <!-- HTML -->
+                <div class="experience-card">
+                    <img class="image-top" src="html.png" alt="HTML Logo">
+
+                    <div class="vertical-title">
+                        HTML Developer
+                    </div>
+
+                    <div class="vertical-desc">
+                        Experienced in creating structured, responsive and
+                        semantic web pages using HTML.
+                    </div>
+                </div>
+
+                <!-- CSS -->
+                <div class="experience-card">
+                    <img class="image-top" src="css.png" alt="CSS Logo">
+
+                    <div class="vertical-title">
+                        Web Developer
+                    </div>
+
+                    <div class="vertical-desc">
+                        Skilled in designing responsive websites with modern
+                        CSS layouts, styling and animations.
+                    </div>
+                </div>
+
+                <!-- JavaScript -->
+                <div class="experience-card">
+                    <img class="image-top" src="java.png" alt="JavaScript Logo">
+
+                    <div class="vertical-title">
+                        Website Developer
+                    </div>
+
+                    <div class="vertical-desc">
+                        Working with JavaScript to create interactive and
+                        dynamic website experiences.
+                    </div>
+                </div>
+
+                <!-- Python -->
+                <div class="experience-card">
+                    <img class="image-top" src="python.jfif" alt="Python Logo">
+
+                    <div class="vertical-title">
+                        Python Developer
+                    </div>
+
+                    <div class="vertical-desc">
+                        Familiar with Python programming and developing
+                        basic applications and automation solutions.
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+    <footer>
+
+        <div class="footer">
+
+            <div class="footer-first">
+                <h3>Karan's Developer Portfolio</h3>
+                <p>
+                    Building modern and responsive web experiences.
+                </p>
+            </div>
+
+            <div class="footer-second">
+                <h4>Quick Links</h4>
+
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-third">
+                <h4>Services</h4>
+
+                <ul>
+                    <li>Web Development</li>
+                    <li>UI/UX Design</li>
+                    <li>Content Creation</li>
+                    <li>Software Development</li>
+                </ul>
+            </div>
+
+            <div class="footer-fourth">
+                <h4>Contact</h4>
+
+                <ul>
+                    <li>Email</li>
+                    <li>LinkedIn</li>
+                    <li>GitHub</li>
+                    <li>Instagram</li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="footer-rights">
+            © 2026 Karan's Portfolio | All Rights Reserved
+        </div>
+
+    </footer>
+
+    <!-- =========================
+         TYPED.JS
+    ========================== -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+
+            new Typed("#element", {
+                strings: [
+                    "Content Creator",
+                    "Software Engineer",
+                    "UI/UX Designer",
+                    "Web Developer"
+                ],
+
+                typeSpeed: 80,
+                backSpeed: 50,
+                backDelay: 1000,
+                loop: true
+            });
+
+        });
+    </script>
+
+</body>
+
+</html>
+```
